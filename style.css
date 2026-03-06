@@ -1,0 +1,172 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Colour system */
+:root {
+  --bg: #16272b;
+  --surface: #f7df9c;
+  --surface-soft: #efe1b5;
+  --accent-primary: #ef9f4a;
+  --accent-strong: #a93f3f;
+  --text-dark: #16272b;
+  --text-light: #f7df9c;
+  --border: #d9b766;
+
+  --shadow: 0 10px 25px rgba(0,0,0,0.25);
+  --radius: 16px;
+  --max-width: 980px;
+}
+
+/* Base */
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--bg);
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.container {
+  width: min(92%, var(--max-width));
+  margin: 0 auto;
+}
+
+/* Header */
+.site-header {
+  padding: 4rem 0 2.5rem;
+  background: linear-gradient(
+    180deg,
+    #16272b 0%,
+    #1e363c 100%
+  );
+  border-bottom: 4px solid var(--accent-primary);
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 0.7rem;
+}
+
+.site-header h1 {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--surface);
+}
+
+.intro {
+  max-width: 760px;
+  color: #c9c1a0;
+  font-size: 1.05rem;
+}
+
+/* Layout spacing */
+main {
+  padding: 2.5rem 0 4rem;
+}
+
+section + section {
+  margin-top: 2.8rem;
+}
+
+section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1.2rem;
+  color: var(--accent-primary);
+}
+
+/* Project details */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.detail-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  color: var(--text-dark);
+}
+
+.detail-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-strong);
+}
+
+/* Response cards */
+.response-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+  color: var(--text-dark);
+}
+
+.response-card + .response-card {
+  margin-top: 1rem;
+}
+
+.response-card h3 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 0.85rem;
+  color: var(--accent-strong);
+}
+
+.note {
+  font-size: 0.95rem;
+  color: #5c5143;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+/* Answer areas */
+.answer {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  min-height: 4.5rem;
+
+  background: var(--surface-soft);
+  border-left: 6px solid var(--accent-primary);
+  border-radius: 10px;
+
+  color: var(--text-dark);
+}
+
+/* Footer */
+.site-footer {
+  padding: 1.6rem 0 3rem;
+  border-top: 3px solid var(--accent-primary);
+}
+
+.site-footer p {
+  color: #bfb891;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+
+  .site-header {
+    padding: 3rem 0 2rem;
+  }
+
+  .response-card,
+  .detail-card {
+    padding: 1.2rem;
+  }
+
+  .answer {
+    min-height: 5.5rem;
+  }
+
+}
