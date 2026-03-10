@@ -1,12 +1,9 @@
-/* Basic reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
-/* Simple colour variables */
 :root {
   --bg: #f4efe4;
   --text: #16272b;
@@ -15,7 +12,6 @@
   --accent-dark: #236ec4;
 }
 
-/* MDN box model / layout basics */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
@@ -26,7 +22,6 @@ body {
   margin: 0 auto;
 }
 
-/* MDN flexbox idea: simple horizontal header layout */
 header {
   display: flex;
   justify-content: space-between;
@@ -64,7 +59,6 @@ nav a:hover {
   max-width: 8ch;
 }
 
-/* MDN grid idea: simple two-column layout */
 .intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -88,7 +82,6 @@ nav a:hover {
   padding-top: 1.5rem;
 }
 
-/* MDN article pattern: repeated content blocks */
 article {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -110,7 +103,6 @@ article p {
   min-height: 110px;
 }
 
-/* Simple responsive layout */
 @media (max-width: 800px) {
   header,
   .intro,
