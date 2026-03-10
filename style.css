@@ -1,172 +1,133 @@
-/* Reset */
+/* Basic reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Colour system */
+
+/* Simple colour variables */
 :root {
-  --bg: #16272b;
-  --surface: #f7df9c;
-  --surface-soft: #efe1b5;
-  --accent-primary: #ef9f4a;
-  --accent-strong: #d9b1b1;
-  --text-dark: #16272b;
-  --text-light: #f7df9c;
-  --border: #d9b766;
-
-  --shadow: 0 10px 25px rgba(0,0,0,0.25);
-  --radius: 16px;
-  --max-width: 980px;
+  --bg: #f4efe4;
+  --text: #16272b;
+  --line: #16272b;
+  --accent: #197cc7;
+  --accent-dark: #236ec4;
 }
 
-/* Base */
+/* MDN box model / layout basics */
 body {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-.container {
-  width: min(92%, var(--max-width));
+  color: var(--text);
+  line-height: 1.5;
+  padding: 1.5rem;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-/* Header */
-.site-header {
-  padding: 4rem 0 2.5rem;
-  background: linear-gradient(
-    180deg,
-    #16272b 0%,
-    #1e363c 100%
-  );
-  border-bottom: 4px solid var(--accent-primary);
-}
-
-.eyebrow {
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent-primary);
-  margin-bottom: 0.7rem;
-}
-
-.site-header h1 {
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
-  line-height: 1.1;
-  margin-bottom: 1rem;
-  color: var(--surface);
-}
-
-.intro {
-  max-width: 760px;
-  color: #c9c1a0;
-  font-size: 1.05rem;
-}
-
-/* Layout spacing */
-main {
-  padding: 2.5rem 0 4rem;
-}
-
-section + section {
-  margin-top: 2.8rem;
-}
-
-section h2 {
-  font-size: 1.7rem;
-  margin-bottom: 1.2rem;
-  color: var(--accent-primary);
-}
-
-/* Project details */
-.details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+/* MDN flexbox idea: simple horizontal header layout */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
+  padding-bottom: 1rem;
 }
 
-.detail-card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  box-shadow: var(--shadow);
-  color: var(--text-dark);
+nav {
+  display: flex;
+  gap: 1.5rem;
 }
 
-.detail-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: var(--accent-strong);
+nav a {
+  color: var(--text);
+  text-decoration: none;
 }
 
-/* Response cards */
-.response-card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 1.6rem;
-  box-shadow: var(--shadow);
-  color: var(--text-dark);
+nav a:hover {
+  text-decoration: underline;
 }
 
-.response-card + .response-card {
-  margin-top: 1rem;
+.small {
+  font-size: 0.9rem;
 }
 
-.response-card h3 {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  margin-bottom: 0.85rem;
-  color: var(--accent-strong);
+.hero {
+  padding: 5rem 0 1.5rem 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.note {
-  font-size: 0.95rem;
-  color: #5c5143;
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  max-width: 8ch;
+}
+
+/* MDN grid idea: simple two-column layout */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1.5rem 0 3rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro h2,
+.responses-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro p {
   margin-bottom: 0.75rem;
-  font-style: italic;
+  max-width: 34ch;
 }
 
-/* Answer areas */
-.answer {
-  margin-top: 0.5rem;
+#responses {
+  padding-top: 1.5rem;
+}
+
+/* MDN article pattern: repeated content blocks */
+article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+}
+
+article h3 {
+  font-size: 1.2rem;
+  line-height: 1.1;
+  max-width: 24ch;
+}
+
+article p {
+  background: rgba(239, 159, 74, 0.15);
+  border-left: 4px solid var(--accent);
   padding: 1rem;
-  min-height: 4.5rem;
-
-  background: var(--surface-soft);
-  border-left: 6px solid var(--accent-primary);
-  border-radius: 10px;
-
-  color: var(--text-dark);
+  min-height: 110px;
 }
 
-/* Footer */
-.site-footer {
-  padding: 1.6rem 0 3rem;
-  border-top: 3px solid var(--accent-primary);
-}
-
-.site-footer p {
-  color: #bfb891;
-  font-size: 0.95rem;
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-
-  .site-header {
-    padding: 3rem 0 2rem;
+/* Simple responsive layout */
+@media (max-width: 800px) {
+  header,
+  .intro,
+  article {
+    display: block;
   }
 
-  .response-card,
-  .detail-card {
-    padding: 1.2rem;
+  nav {
+    margin: 0.75rem 0;
   }
 
-  .answer {
-    min-height: 5.5rem;
+  .intro div,
+  article h3 {
+    margin-bottom: 1rem;
   }
 
+  .hero {
+    padding-top: 3rem;
+  }
 }
